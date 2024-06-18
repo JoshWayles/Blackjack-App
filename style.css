@@ -23,11 +23,11 @@ button:hover {
   border: 1px solid black;
 }
 
+.no-display{
+display:none;
+}
+
 .game-space {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   margin: auto;
   padding: 20px;
   width: 80vw;
@@ -117,12 +117,12 @@ button:hover {
 
 @media only screen and (max-width: 768px) {
   .image {
-    width: 180px;
-    height: 162px;
+    width: 160px;
+    height: 144px;
   }
 
   .game-space{
-    margin:35px auto;
+    margin: auto;
   }
 
   button{
