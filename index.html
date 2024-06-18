@@ -1,0 +1,53 @@
+<html>
+
+<head>
+  <meta name="author" content="Josh Wayles" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Blackjack Game</title>
+</head>
+
+<body>
+  <div class="game-space">
+    <p id="highScoreEL">Highscore: -</p>
+    <div class="game-tips">
+      <p id="tipsEL">Welcome to Blackjack.</p>
+    </div>
+    <div class="image" id="image">
+    </div>
+    <div class="game-info">
+      <div></div>
+      <div class="player-info">
+        <p class="score" id="scoreEL">-</p>
+        <p class="cards-in-hand" id="handEL">-</p>
+      </div>
+      <div class="dealer-info">
+        <p class="score" id="dealerScoreEL">-</p>
+        <p class="cards-in-hand" id="dealerHandEL">-</p>
+      </div>
+      <div></div>
+    </div>
+    <div class="button-space">
+      <div class="game-buttons">
+        <button onclick="startGame()">Start</button>
+        <button onclick="updatePlayerHand()">Draw</button>
+        <button onclick="dealerTurn()">Pass</button>
+      </div>
+      <div class="bet-buttons">
+        <button id="bet" onclick="betCredits5()">Bet 5</button>
+        <button id="bet" onclick="betCredits10()">Bet 10</button>
+        <button id="bet" onclick="betCredits50()">Bet 50</button>
+      </div>
+    </div>
+    <div class="game-bet">
+      <p id="creditsEL">You have 50 credits, you have bet 0 credits.</p>
+    </div>
+    <div class="author">
+      <p id="author"> Code and assets by <a href="https://ko-fi.com/joshwayles" target="_blank">Josh Wayles</a></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

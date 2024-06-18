@@ -1,0 +1,189 @@
+body {
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  font-size: 20px;
+  height: 40px;
+  width: 150px;
+  margin: 5px 2px;
+  border: none;
+  border-radius: 10px;
+  color: black;
+  touch-action: manipulation;
+}
+
+#new-game {
+  background-color: lawngreen;
+}
+
+button:hover {
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.game-space {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  padding: 20px;
+  width: 85vw;
+  background-color: rgb(220, 220, 220);
+  border-radius: 20px;
+}
+
+.player-info {
+  min-width: 45%;
+  text-align: center;
+  position: relative;
+}
+
+.dealer-info {
+  min-width: 45%;
+  text-align: center;
+  position: relative;
+}
+
+.image {
+  margin: auto;
+  background-position: center;
+  background-size: contain;
+  background-image: url("/images/neutral.png")
+}
+
+.game-info {
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.button-space {
+  margin: auto;
+  padding: 10px;
+  background-color: grey;
+  border-radius: 10px;
+}
+
+.game-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  font-weight: bold;
+}
+
+.bet-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.author {
+  font-style: italic;
+  text-align: center;
+  font-size: 16px;
+}
+
+#tipsEl {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 50px;
+}
+
+#creditsEL {
+  background-color: white;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#bet {
+  width: 100px;
+  background-color: gold;
+}
+
+#highScoreEL {
+  text-align: right;
+}
+
+@media only screen and (max-width: 768px) {
+  .image {
+    width: 180px;
+    height: 162px;
+  }
+
+  .button-space {
+    border: 2px solid black;
+  }
+
+  #tipsEL {
+    font-size: 16px;
+  }
+
+  .score {
+    font-size: 26px;
+    margin: 10px 0 -10px 0;
+  }
+
+  .cards-in-hand {
+    font-size: 14px;
+  }
+
+  #creditsEL {
+    font-size: 16px;
+  }
+
+  #highScoreEL {
+    margin: 10px 0 15px 0;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .game-space {
+    max-width: 800px;
+  }
+
+  .image {
+    width: 40vw;
+    height: 36vw;
+    max-width: 400px;
+    max-height: 360px;
+  }
+
+  .button-space {
+    border: 4px solid black;
+  }
+
+  #tipsEL {
+    font-size: 24px;
+  }
+
+  .score {
+    font-size: 44px;
+    margin: 20px 0 -20px 0;
+  }
+
+  .cards-in-hand {
+    font-size: 26px;
+  }
+
+  #creditsEL {
+    font-size: 22px;
+  }
+
+  #highScoreEL {
+    margin: 10px 0 15px 0;
+    font-size: 19px;
+  }
+
+}
