@@ -99,8 +99,8 @@ function startGame() {
       shuffleCards(cards);
       updatePlayerHand();
       updatePlayerHand();
-      bet += (credits.toString().length-1) * 10;
-      credits -= (credits.toString().length-1) * 10;
+      bet += Math.ceil((credits / 5) / 10) * 10;
+      credits -= Math.ceil((credits / 5) / 10) * 10;
       creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
       dealerImage.style.backgroundImage = dealerArray[15];
     } else {
@@ -297,7 +297,7 @@ function endRound() {
     dealerImage.style.backgroundImage = dealerArray[11];
     tipsEl.textContent = 'Ok...';
     setTimeout(resetGame, 1500);
-   }else {
+  } else {
     dealerImage.style.backgroundImage = dealerArray[7];
     tipsEl.innerHTML = "<button id='new-game' onclick='hardResetGame()' >New Game</button>";
   }
