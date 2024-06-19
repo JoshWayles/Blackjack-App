@@ -16,6 +16,7 @@ let playerHand = [];
 let dealerScore = 0;
 let dealerHand = [];
 let draw = [];
+
 let highScore = 0;
 
 let handEl = document.getElementById('handEL');
@@ -98,8 +99,8 @@ function startGame() {
       shuffleCards(cards);
       updatePlayerHand();
       updatePlayerHand();
-      bet += credits.toString().length * 5;
-      credits -= credits.toString().length * 5;
+      bet += (credits.toString().length-1) * 10;
+      credits -= (credits.toString().length-1) * 10;
       creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
       dealerImage.style.backgroundImage = dealerArray[15];
     } else {
@@ -110,13 +111,13 @@ function startGame() {
   }
 }
 
-function betCredits5() {
+function betCreditsAll() {
   if (playerScore <= 21) {
     if (dealerPlayTurn === false) {
       if (gameStarted === true) {
         if (credits > 0) {
-          credits -= 5;
-          bet += 5;
+          bet += credits;
+          credits -= credits;
           creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
         } else {
           dealerImage.style.backgroundImage = dealerArray[9];
@@ -237,7 +238,6 @@ function dealerDraw() {
 }
 
 function scoreCheck() {
-  highScore = credits;
   if (playerScore === 21 && dealerScore === 21) {
     dealerImage.style.backgroundImage = dealerArray[4];
     tipsEl.textContent = 'Capital G gaming here!';
@@ -247,13 +247,13 @@ function scoreCheck() {
   } else if (playerScore === 21 && dealerScore < 21) {
     dealerImage.style.backgroundImage = dealerArray[1];
     tipsEl.textContent = 'Blackjack, well done!';
-    credits += bet * 2 + 10;
+    credits += bet * 2 + 20;
     bet = 0;
     creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
   } else if (playerScore === dealerScore) {
     dealerImage.style.backgroundImage = dealerArray[5];
     tipsEl.textContent = 'What are the odds!';
-    credits += bet + 5;
+    credits += bet + 10;
     bet = 0;
     creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
   } else if (playerScore > dealerScore) {
@@ -278,24 +278,27 @@ function scoreCheck() {
   } else {
     dealerImage.style.backgroundImage = dealerArray[2];
     tipsEl.textContent = "Oh no! I'm Bust!";
-    credits += bet * 2 + 5;
+    credits += bet * 2;
     bet = 0;
     creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
   }
+
+  if (credits > highScore) {
+    highScore = credits;
+    highScoreEL.textContent = 'HighScore: ' + highScore;
+  }
+
   setTimeout(endRound, 2000);
-}ß
+}
 
 function endRound() {
+
   if (credits > 0) {
     dealerImage.style.backgroundImage = dealerArray[11];
     tipsEl.textContent = 'Ok...';
     setTimeout(resetGame, 1500);
-    if (credits > highScore) {
-      highScore = credits;
-      highScoreEL.textContent = 'HighScore: ' + highScore;
-    }
-  } else {
-    dealerImage.style.backgroundImage = dealerArray[11];
+   }else {
+    dealerImage.style.backgroundImage = dealerArray[7];
     tipsEl.innerHTML = "<button id='new-game' onclick='hardResetGame()' >New Game</button>";
   }
 }
@@ -314,6 +317,7 @@ function resetGame() {
   dealerScore = 0;
   dealerHand = [];
   draw = [];
+
   handEL.textContent = '-';
   scoreEL.textContent = '-';
   dealerHandEL.textContent = '-';
@@ -339,6 +343,7 @@ function hardResetGame() {
   dealerScore = 0;
   dealerHand = [];
   draw = [];
+
   handEL.textContent = '-';
   scoreEL.textContent = '-';
   dealerHandEL.textContent = '-';

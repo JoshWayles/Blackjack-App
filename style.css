@@ -3,6 +3,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+  color: white;
+}
+
 button {
   font-size: 20px;
   height: 40px;
@@ -15,7 +19,7 @@ button {
 }
 
 #new-game {
-  background-color: lawngreen;
+  background-color: rgb(120, 255, 120);
 }
 
 button:hover {
@@ -23,15 +27,15 @@ button:hover {
   border: 1px solid black;
 }
 
-.no-display{
-display:none;
+.no-display {
+  display: none;
 }
 
 .game-space {
   margin: auto;
   padding: 20px;
   width: 80vw;
-  background-color: rgb(220, 220, 220);
+  background-color: rgb(20, 160, 200);
   border-radius: 20px;
 }
 
@@ -65,7 +69,7 @@ display:none;
 .button-space {
   margin: auto;
   padding: 10px;
-  background-color: grey;
+  background-color: rgb(130 150 150);
   border-radius: 10px;
 }
 
@@ -108,7 +112,7 @@ display:none;
 
 #bet {
   width: 100px;
-  background-color: gold;
+  background-color: rgb(255, 215, 50);
 }
 
 #highScoreEL {
@@ -117,16 +121,16 @@ display:none;
 
 @media only screen and (max-width: 768px) {
   .image {
-    width: 160px;
-    height: 144px;
+    width: 180px;
+    height: 162px;
   }
 
-  .game-space{
+  .game-space {
     margin: auto;
   }
 
-  button{
-    font-size:16px;
+  button {
+    font-size: 16px;
   }
 
   .button-space {
