@@ -8,7 +8,7 @@ let difference = 0;
 let cards = [
   2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10,
   10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8,
-  9, 10, 10, 10, 10, 11,
+  9, 10, 10, 10, 10, 11
 ];
 
 let playerScore = 0;
@@ -38,9 +38,9 @@ let dealerArray = ["url('/images/biscuit.png')", "url('/images/blackjack.png')",
 let dealerImage = document.getElementById("image")
 
 function shuffleCards(array) {
-  for (index of cards) {
-    var rand = Math.floor(Math.random() * (index + 1));
-    [array[index], array[rand]] = [array[rand], array[index]];
+  for (let i = 0; i < cards.length; i++) {
+    var rand = Math.floor(Math.random() * (i + 1));
+    [array[i], array[rand]] = [array[rand], array[i]]
   }
 }
 
@@ -310,7 +310,7 @@ function resetGame() {
   cards = [
     2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10,
     10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8,
-    9, 10, 10, 10, 10, 11,
+    9, 10, 10, 10, 10, 11
   ];
   playerScore = 0;
   playerHand = [];
@@ -336,7 +336,7 @@ function hardResetGame() {
   cards = [
     2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10,
     10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8,
-    9, 10, 10, 10, 10, 11,
+    9, 10, 10, 10, 10, 11
   ];
   playerScore = 0;
   playerHand = [];
