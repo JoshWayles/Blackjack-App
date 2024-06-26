@@ -96,7 +96,6 @@ function startGame() {
     if (gameStarted === false) {
       gameStarted = true;
       shuffleCards(cards);
-      shuffleCards(cards);
       updatePlayerHand();
       updatePlayerHand();
       bet += Math.ceil((credits / 5) / 10) * 10;
@@ -192,7 +191,7 @@ function dealerTurn() {
         dealerDraw();
       } else if (gameStarted === true) {
         dealerImage.style.backgroundImage = dealerArray[3];
-        tipsEL.textContent = 'Oh no you are bust!';
+        tipsEL.textContent = 'Oh no, you are bust!';
         setTimeout(endRound, 2000);
       } else {
         tipsEL.textContent = 'You need to start a round.';
@@ -218,7 +217,7 @@ function dealerDraw() {
       tipsEL.textContent = 'Winning for now...';
       setTimeout(updateDealerHand, 2000);
       setTimeout(scoreCheck, 3000);
-    } else if (difference >= 3) {
+    } else if (difference >= 2) {
       if (difference ** 2 >= chance) {
         dealerImage.style.backgroundImage = dealerArray[0];
         tipsEL.textContent = 'For the biscuit???';

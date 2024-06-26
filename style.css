@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: white;
+  color: black;
 }
 
 button {
@@ -19,7 +19,8 @@ button {
 }
 
 #new-game {
-  background-color: rgb(120, 255, 120);
+  color: black;
+  background-color: rgb(105, 255, 105);
 }
 
 button:hover {
@@ -32,20 +33,23 @@ button:hover {
 }
 
 .game-space {
+  color: black;
   margin: auto;
   padding: 20px;
   width: 80vw;
-  background-color: rgb(20, 160, 200);
+  background-color: rgb(75, 195, 225);
   border-radius: 20px;
 }
 
 .player-info {
+  color: black;
   min-width: 45%;
   text-align: center;
   position: relative;
 }
 
 .dealer-info {
+  color: black;
   min-width: 45%;
   text-align: center;
   position: relative;
@@ -59,6 +63,7 @@ button:hover {
 }
 
 .game-info {
+  color: black;
   display: flex;
   margin: auto;
   justify-content: space-between;
@@ -74,26 +79,31 @@ button:hover {
 }
 
 .game-buttons {
+  color: black;
   display: flex;
   justify-content: center;
 }
 
 .score {
+  color: black;
   font-weight: bold;
 }
 
 .bet-buttons {
+  color: black;
   display: flex;
   justify-content: center;
 }
 
 .author {
+  color: black;
   font-style: italic;
   text-align: center;
   font-size: 16px;
 }
 
-#tipsEl {
+#tipsEL {
+  color: black;
   margin: auto;
   width: 80%;
   text-align: center;
@@ -103,6 +113,7 @@ button:hover {
 }
 
 #creditsEL {
+  color: black;
   background-color: white;
   margin: auto;
   padding: 10px;
@@ -116,6 +127,7 @@ button:hover {
 }
 
 #highScoreEL {
+  color: black;
   text-align: right;
 }
 
