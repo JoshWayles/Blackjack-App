@@ -212,6 +212,12 @@ function dealerDraw() {
       dealerImage.style.backgroundImage = dealerArray[12];
       tipsEL.textContent = "Ooo, that's a nice hand!";
       setTimeout(endRound, 3000);
+    } else if (difference > 11) {
+      dealerImage.style.backgroundImage = dealerArray[10];
+      tipsEL.textContent = 'Need more than that...';
+      setTimeout(updateDealerHand, 1500);
+      setTimeout(updateDealerHand, 3000);
+      setTimeout(scoreCheck, 4000);
     } else if (difference > 7) {
       dealerImage.style.backgroundImage = dealerArray[17];
       tipsEL.textContent = 'Winning for now...';
@@ -231,7 +237,7 @@ function dealerDraw() {
     } else {
       dealerImage.style.backgroundImage = dealerArray[10];
       tipsEL.textContent = 'Not going to risk it!';
-      setTimeout(scoreCheck, 3000);
+      setTimeout(scoreCheck, 2500);
     }
   }
 }
