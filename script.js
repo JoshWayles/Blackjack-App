@@ -214,7 +214,7 @@ function dealerDraw() {
       setTimeout(endRound, 3000);
     } else if (difference > 11) {
       dealerImage.style.backgroundImage = dealerArray[10];
-      tipsEL.textContent = 'Need more than that...';
+      tipsEL.textContent = 'Hmm I need more than that...';
       setTimeout(updateDealerHand, 1500);
       setTimeout(updateDealerHand, 3000);
       setTimeout(scoreCheck, 4000);
@@ -334,27 +334,8 @@ function resetGame() {
 }
 
 function hardResetGame() {
-  bet = 0;
+  resetGame()
   credits = 50;
-  gameStarted = false;
-  dealerPlayTurn = false;
-  cards = [
-    2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10,
-    10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8,
-    9, 10, 10, 10, 10, 11
-  ];
-  playerScore = 0;
-  playerHand = [];
-  dealerScore = 0;
-  dealerHand = [];
-  draw = [];
-
-  handEL.textContent = '-';
-  scoreEL.textContent = '-';
-  dealerHandEL.textContent = '-';
-  dealerScoreEL.textContent = '-';
-  tipsEl.textContent = 'Best of luck.';
   creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
-
-  dealerImage.style.backgroundImage = dealerArray[8];
+  tipsEl.textContent = 'Best of luck.';
 }
