@@ -3,8 +3,6 @@ let bet = 0;
 let gameStarted = false;
 let dealerPlayTurn = false;
 
-let difference = 0;
-
 let cards = [
   2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10,
   10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8,
@@ -16,7 +14,6 @@ let playerHand = [];
 let dealerScore = 0;
 let dealerHand = [];
 let draw = [];
-
 let highScore = 0;
 
 let handEl = document.getElementById('handEL');
@@ -24,9 +21,10 @@ let scoreEl = document.getElementById('scoreEL');
 let dealerHandEl = document.getElementById('dealerHandEL');
 let dealerScoreEl = document.getElementById('dealerScoreEL');
 let tipsEl = document.getElementById('tipsEL');
-let creditsEL = document.getElementById('creditsEL');
-let highScoreEL = document.getElementById('highScoreEL');
+let creditsEl = document.getElementById('creditsEL');
+let highscoreEl = document.getElementById('highScoreEL');
 
+//Images for the dealer
 let dealerArray = ["url('/images/biscuit.png')", "url('/images/blackjack.png')",
   "url('/images/bust-dealer.png')", "url('/images/bust.png')",
   "url('/images/capital-g.png')", "url('/images/draw.png')", "url('/images/got-you.png')",
@@ -35,8 +33,9 @@ let dealerArray = ["url('/images/biscuit.png')", "url('/images/blackjack.png')",
   "url('/images/player-draw.png')", "url('/images/spicy.png')", "url('/images/start.png')",
   "url('/images/win.png')", "url('/images/winning-now.png')"]
 
-let dealerImage = document.getElementById("image")
+let dealerImage = document.getElementById("image");
 
+//Functions for gameplay
 function shuffleCards(array) {
   for (let i = 0; i < cards.length; i++) {
     var rand = Math.floor(Math.random() * (i + 1));
@@ -63,7 +62,7 @@ function updatePlayerHand() {
         tipsEl.textContent = '-';
       } else {
         dealerImage.style.backgroundImage = dealerArray[3];
-        tipsEL.textContent = 'Oops, you are bust!';
+        tipsEl.textContent = 'Oops, you are bust!';
         if (credits > 0) {
           setTimeout(endRound, 2000);
         } else {
@@ -71,7 +70,7 @@ function updatePlayerHand() {
         }
       }
     } else {
-      tipsEL.textContent = 'You need to start a round.';
+      tipsEl.textContent = 'You need to start a round.';
     }
   }
 }
@@ -100,11 +99,11 @@ function startGame() {
       updatePlayerHand();
       bet += Math.ceil((credits / 5) / 10) * 10;
       credits -= Math.ceil((credits / 5) / 10) * 10;
-      creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+      creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
       dealerImage.style.backgroundImage = dealerArray[15];
     } else {
       dealerImage.style.backgroundImage = dealerArray[8];
-      tipsEL.textContent = 'You have already started...';
+      tipsEl.textContent = 'You have already started...';
     }
   } else {
   }
@@ -117,19 +116,19 @@ function betCreditsAll() {
         if (credits > 0) {
           bet += credits;
           credits -= credits;
-          creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+          creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
         } else {
           dealerImage.style.backgroundImage = dealerArray[9];
           tipsEl.textContent = 'You have no more credits!';
         }
       } else {
         dealerImage.style.backgroundImage = dealerArray[11];
-        tipsEL.textContent = 'You need to start a round.';
+        tipsEl.textContent = 'You need to start a round.';
       }
     }
   } else {
     dealerImage.style.backgroundImage = dealerArray[3];
-    tipsEL.textContent = 'Dang, you are bust!';
+    tipsEl.textContent = 'Dang, you are bust!';
     setTimeout(endRound, 2000);
   }
 }
@@ -141,19 +140,19 @@ function betCredits10() {
         if (credits > 5) {
           credits -= 10;
           bet += 10;
-          creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+          creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
         } else {
           dealerImage.style.backgroundImage = dealerArray[9];
           tipsEl.textContent = "You don't have 10 credits!";
         }
       } else {
         dealerImage.style.backgroundImage = dealerArray[11];
-        tipsEL.textContent = 'You need to start a round.';
+        tipsEl.textContent = 'You need to start a round.';
       }
     }
   } else {
     dealerImage.style.backgroundImage = dealerArray[3];
-    tipsEL.textContent = 'Oh oh, you are bust!';
+    tipsEl.textContent = 'Oh oh, you are bust!';
     setTimeout(endRound, 2000);
   }
 }
@@ -165,19 +164,19 @@ function betCredits50() {
         if (credits >= 50) {
           credits -= 50;
           bet += 50;
-          creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+          creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
         } else {
           dealerImage.style.backgroundImage = dealerArray[9];
           tipsEl.textContent = "You don't have 50 credits!";
         }
       } else {
         dealerImage.style.backgroundImage = dealerArray[11];
-        tipsEL.textContent = 'You need to start a round.';
+        tipsEl.textContent = 'You need to start a round.';
       }
     }
   } else {
     dealerImage.style.backgroundImage = dealerArray[3];
-    tipsEL.textContent = 'Ahh, you are bust!';
+    tipsEl.textContent = 'Ahh, you are bust!';
     setTimeout(endRound, 2000);
   }
 }
@@ -191,52 +190,53 @@ function dealerTurn() {
         dealerDraw();
       } else if (gameStarted === true) {
         dealerImage.style.backgroundImage = dealerArray[3];
-        tipsEL.textContent = 'Oh no, you are bust!';
+        tipsEl.textContent = 'Oh no, you are bust!';
         setTimeout(endRound, 2000);
       } else {
-        tipsEL.textContent = 'You need to start a round.';
+        tipsEl.textContent = 'You need to start a round.';
       }
     }
     dealerPlayTurn = true;
   } else {
     dealerImage.style.backgroundImage = dealerArray[7];
-    tipsEL.textContent = "Don't you want a go?"
+    tipsEl.textContent = "Don't you want a go?"
   }
 }
 
 function dealerDraw() {
   let chance = Math.floor(Math.random() * 49 + 1);
-  difference = 21 - dealerScore;
+  const difference = 21 - dealerScore;
+
   if (dealerScore <= 21) {
     if (dealerScore > playerScore) {
       dealerImage.style.backgroundImage = dealerArray[12];
-      tipsEL.textContent = "Ooo, that's a nice hand!";
+      tipsEl.textContent = "Ooo, that'll do it!";
       setTimeout(endRound, 3000);
     } else if (difference > 11) {
       dealerImage.style.backgroundImage = dealerArray[10];
-      tipsEL.textContent = 'Hmm I need more than that...';
+      tipsEl.textContent = 'Hmm I need more than that...';
       setTimeout(updateDealerHand, 1500);
       setTimeout(updateDealerHand, 3000);
       setTimeout(scoreCheck, 4000);
     } else if (difference > 7) {
       dealerImage.style.backgroundImage = dealerArray[17];
-      tipsEL.textContent = 'Winning for now...';
+      tipsEl.textContent = 'Winning for now...';
       setTimeout(updateDealerHand, 2000);
       setTimeout(scoreCheck, 3000);
     } else if (difference >= 2) {
       if (difference ** 2 >= chance) {
         dealerImage.style.backgroundImage = dealerArray[0];
-        tipsEL.textContent = 'For the biscuit???';
+        tipsEl.textContent = 'For the biscuit???';
         setTimeout(updateDealerHand, 2000);
         setTimeout(scoreCheck, 3000);
       } else {
         dealerImage.style.backgroundImage = dealerArray[14];
-        tipsEL.textContent = 'Too spicy for me!';
+        tipsEl.textContent = 'Too spicy for me!';
         setTimeout(scoreCheck, 3000);
       }
     } else {
       dealerImage.style.backgroundImage = dealerArray[10];
-      tipsEL.textContent = 'Not going to risk it!';
+      tipsEl.textContent = 'Not going to risk it!';
       setTimeout(scoreCheck, 2500);
     }
   }
@@ -246,51 +246,51 @@ function scoreCheck() {
   if (playerScore === 21 && dealerScore === 21) {
     dealerImage.style.backgroundImage = dealerArray[4];
     tipsEl.textContent = 'Capital G gaming here!';
-    credits += bet + 10;
+    credits += bet * 2;
     bet = 0;
-    creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+    creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
   } else if (playerScore === 21 && dealerScore < 21) {
     dealerImage.style.backgroundImage = dealerArray[1];
     tipsEl.textContent = 'Blackjack, well done!';
-    credits += bet * 2 + 20;
+    credits += bet * 2;
     bet = 0;
-    creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+    creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
   } else if (playerScore === dealerScore) {
     dealerImage.style.backgroundImage = dealerArray[5];
     tipsEl.textContent = 'What are the odds!';
-    credits += bet + 10;
+    credits += bet + 20;
     bet = 0;
-    creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+    creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
   } else if (playerScore > dealerScore) {
     if (dealerScore > 15) {
       dealerImage.style.backgroundImage = dealerArray[16];
       tipsEl.textContent = 'Well played, you win!';
       credits += bet * 2;
       bet = 0;
-      creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+      creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
     } else {
       dealerImage.style.backgroundImage = dealerArray[7];
       tipsEl.textContent = "I'll let you have this one...";
       credits += bet * 2;
       bet = 0;
-      creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+      creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
     }
   } else if (dealerScore <= 21) {
     dealerImage.style.backgroundImage = dealerArray[6];
     tipsEl.textContent = 'Got you this time!';
     bet = 0;
-    creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+    creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
   } else {
     dealerImage.style.backgroundImage = dealerArray[2];
     tipsEl.textContent = "Oh no! I'm Bust!";
     credits += bet * 2;
     bet = 0;
-    creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+    creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
   }
 
   if (credits > highScore) {
     highScore = credits;
-    highScoreEL.textContent = 'HighScore: ' + highScore;
+    highscoreEl.textContent = 'HighScore: ' + highScore;
   }
 
   setTimeout(endRound, 2000);
@@ -312,23 +312,25 @@ function resetGame() {
   bet = 0;
   gameStarted = false;
   dealerPlayTurn = false;
+
   cards = [
     2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10,
     10, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11, 2, 3, 4, 5, 6, 7, 8,
     9, 10, 10, 10, 10, 11
   ];
+
   playerScore = 0;
   playerHand = [];
   dealerScore = 0;
   dealerHand = [];
   draw = [];
 
-  handEL.textContent = '-';
-  scoreEL.textContent = '-';
-  dealerHandEL.textContent = '-';
-  dealerScoreEL.textContent = '-';
+  handEl.textContent = '-';
+  scoreEl.textContent = '-';
+  dealerHandEl.textContent = '-';
+  dealerScoreEl.textContent = '-';
   tipsEl.textContent = 'Time for another round.';
-  creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+  creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
 
   dealerImage.style.backgroundImage = dealerArray[8];
 }
@@ -336,6 +338,6 @@ function resetGame() {
 function hardResetGame() {
   resetGame()
   credits = 50;
-  creditsEL.textContent = `You have ${credits} credits, you have bet ${bet} credits.`;
+  creditsEl.textContent = `Credits: ${credits} Bet: ${bet}`;
   tipsEl.textContent = 'Best of luck.';
 }

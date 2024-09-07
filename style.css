@@ -9,7 +9,6 @@ a {
 }
 
 button {
-  font-size: 20px;
   height: 40px;
   width: 150px;
   margin: 5px 2px;
@@ -60,7 +59,7 @@ button:hover {
   margin: auto;
   background-position: center;
   background-size: contain;
-  background-image: url("/images/neutral.png")
+  background-image: url("/images/neutral.png");
 }
 
 .game-info {
@@ -164,7 +163,7 @@ button:hover {
   }
 
   #creditsEL {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   #highScoreEL {
@@ -174,15 +173,19 @@ button:hover {
 }
 
 @media only screen and (min-width: 768px) {
-  .game-space {
-    max-width: 800px;
-  }
-
   .image {
     width: 40vw;
     height: 36vw;
     max-width: 400px;
     max-height: 360px;
+  }
+
+  .game-space {
+    max-width: 800px;
+  }
+
+  button {
+    font-size: 22px;
   }
 
   .button-space {
@@ -203,7 +206,7 @@ button:hover {
   }
 
   #creditsEL {
-    font-size: 22px;
+    font-size: 26px;
   }
 
   #highScoreEL {
