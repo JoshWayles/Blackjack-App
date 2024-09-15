@@ -24,6 +24,31 @@ let tipsEl = document.getElementById('tipsEL');
 let creditsEl = document.getElementById('creditsEL');
 let highscoreEl = document.getElementById('highScoreEL');
 
+//Image preload
+function preloadImages(im_url) {
+  let img = new Image();
+  img.src = im_url;
+}
+
+preloadImages('/images/biscuit.png');
+preloadImages('/images/blackjack.png');
+preloadImages('/images/bust-dealer.png');
+preloadImages('/images/bust.png');
+preloadImages('/images/capital-g.png');
+preloadImages('/images/draw.png');
+preloadImages('/images/got-you.png');
+preloadImages('/images/have-it.png');
+preloadImages('/images/neutral.png');
+preloadImages('/images/no-credits.png');
+preloadImages('/images/not-going.png');
+preloadImages('/images/ok.png');
+preloadImages('/images/ooo.png');
+preloadImages('/images/player-draw.png');
+preloadImages('/images/spicy.png');
+preloadImages('/images/start.png');
+preloadImages('/images/win.png');
+preloadImages('/images/winning-now.png');
+
 //Images for the dealer
 let dealerArray = ["url('/images/biscuit.png')", "url('/images/blackjack.png')",
   "url('/images/bust-dealer.png')", "url('/images/bust.png')",
@@ -31,7 +56,7 @@ let dealerArray = ["url('/images/biscuit.png')", "url('/images/blackjack.png')",
   "url('/images/have-it.png')", "url('/images/neutral.png')", "url('/images/no-credits.png')",
   "url('/images/not-going.png')", "url('/images/ok.png')", "url('/images/ooo.png')",
   "url('/images/player-draw.png')", "url('/images/spicy.png')", "url('/images/start.png')",
-  "url('/images/win.png')", "url('/images/winning-now.png')"]
+  "url('/images/win.png')", "url('/images/winning-now.png')"];
 
 let dealerImage = document.getElementById("image");
 
