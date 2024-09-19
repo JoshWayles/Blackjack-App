@@ -33,17 +33,26 @@ let dealerArray = ["url('/images/biscuit.png')", "url('/images/blackjack.png')",
   "url('/images/player-draw.png')", "url('/images/spicy.png')", "url('/images/start.png')",
   "url('/images/win.png')", "url('/images/winning-now.png')"];
 
+let dealerImage = document.getElementById("image");
+
 //Image preload
+let dealerArrayPreload = ['/images/biscuit.png', '/images/blackjack.png',
+  '/images/bust-dealer.png', '/images/bust.png',
+  '/images/capital-g.png', '/images/draw.png', '/images/got-you.png',
+  '/images/have-it.png', '/images/neutral.png', '/images/no-credits.png',
+  '/images/not-going.png', '/images/ok.png', '/images/ooo.png',
+  '/images/player-draw.png', '/images/spicy.png', '/images/start.png',
+  '/images/win.png', '/images/winning-now.png'];
+
 function preloadImages(im_url) {
   let img = new Image();
   img.src = im_url;
 }
 
-for (let i = 0; i < dealerArray.length; i++) {
-  preloadImages(dealerArray[i]);
+for (let i = 0; i < dealerArrayPreload.length; i++) {
+  preloadImages(dealerArrayPreload[i]);
+  console.log(dealerArrayPreload[i]);
 }
-
-let dealerImage = document.getElementById("image");
 
 //Functions for gameplay
 function shuffleCards(array) {
