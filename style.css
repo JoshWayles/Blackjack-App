@@ -15,6 +15,7 @@ button {
   border: none;
   border-radius: 10px;
   color: black;
+  background-color: rgb(235, 235, 235);
   touch-action: manipulation;
 }
 
@@ -74,7 +75,7 @@ button:hover {
 .button-space {
   margin: auto;
   padding: 10px;
-  background-color: rgb(130 150 150);
+  background-color: rgb(144, 144, 144);
   border-radius: 10px;
 }
 
@@ -123,7 +124,7 @@ button:hover {
 
 #bet {
   width: 100px;
-  background-color: rgb(255, 215, 50);
+  background-color: rgb(255, 213, 47);
 }
 
 #highScoreEL {
